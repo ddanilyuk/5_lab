@@ -1,22 +1,20 @@
-import java.util.Arrays;
+class Sentence {
+    private static final String punctuationSymblos = ";:,.!?";
 
-public class Sentence {
-    private static final String PUNCTUATION_SYMBOLS = ",.!?";
-    private SentenceMember[] sentenceMembers;
+    Sentence(String s) {
+        String[] splitString = s.split("(?=,|\\.|!|\\?)|\\s");
 
-    public Sentence(String s) {
-        String[] split = s.split("(?=,|\\.|!|\\?)|\\s");
-        //System.out.println(Arrays.toString(split));
-        sentenceMembers = new SentenceMember[split.length];
-        for (int i = 0; i < split.length; i++) {
-            if (PUNCTUATION_SYMBOLS.contains(split[i])) {
-                sentenceMembers[i] = new Punctuation(split[i]);
-                System.out.println(split[i]);
+        Word[] words = new Word[splitString.length];
+        Punctuation[] punctuations = new Punctuation[splitString.length];
+
+        for (int i = 0; i < splitString.length; i++) {
+
+            if (punctuationSymblos.contains(splitString[i])) {
+                punctuations[i] = new Punctuation(splitString[i]);
             } else {
-                sentenceMembers[i] = new Word(split[i]);
-                System.out.println(split[i]);
-
+                words[i] = new Word(splitString[i]);
             }
+
         }
     }
 }

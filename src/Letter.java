@@ -1,8 +1,18 @@
 public class Letter {
-    private char aChar;
+    private char symbol;
 
-    public Letter(char aChar) {
-        this.aChar = aChar;
+    Letter(char symbol) {
+        this.symbol = symbol;
+        if (!equals(Word.letters[0])) {
+            System.out.print(symbol);
+        }
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Letter) {
+            return Character.toLowerCase(((Letter) obj).symbol) == Character.toLowerCase(symbol);
+        }
+        return false;
+    }
 }

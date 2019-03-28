@@ -1,19 +1,17 @@
-import java.util.Arrays;
+class Word {
+    static Letter[] letters;
+    private static int check = 0;
 
-public class Word extends SentenceMember {
-    public Letter[] letters;
-
-    public Word(String s) {
-        letters = new Letter[s.length()];
-        for (int i = 0; i < s.length(); i++) {
-            letters[i] = new Letter(s.charAt(i));
-            //System.out.println(letters[i].toString());
-            //System.out.println(Arrays.asList(letters));
-
-
+    Word(String word){
+        if (check != 0){
+            System.out.print(" ");
         }
-    }
-    public void sout(String s){
 
+        check = 1;
+
+        letters = new Letter[word.length()];
+        for (int i =0; i < word.length(); i++){
+            letters[i] = new Letter(word.charAt(i));
+        }
     }
 }
