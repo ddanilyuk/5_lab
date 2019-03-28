@@ -2,7 +2,7 @@ class Sentence {
     private static final String punctuationSymblos = ";:,.!?";
 
     Sentence(String s) {
-        String[] splitString = s.split("(?=,|\\.|!|\\?)|\\s");
+        String[] splitString = s.split("(?=[,.!?])|\\s");
 
         Word[] words = new Word[splitString.length];
         Punctuation[] punctuations = new Punctuation[splitString.length];
